@@ -13,6 +13,16 @@ class Categories extends Model
         return $this->hasMany(Product::class);
     }
 
+    public function parent()
+    {
+        return $this->belongsTo(Categories::class, 'parent_id');
+    }
+
+    public function children()
+    {
+        return $this->hasMany(Categories::class, 'parent_id');
+    }
+
     public function getRouteKeyName()
     {
         return 'slug';

@@ -1,14 +1,11 @@
-import AppLayoutTemplate from '@/layouts/app/app-sidebar-layout';
-import { type BreadcrumbItem } from '@/types';
-import { type ReactNode } from 'react';
+import AppHeader from "@/components/app-header";
 
-interface AppLayoutProps {
-    children: ReactNode;
-    breadcrumbs?: BreadcrumbItem[];
+export default function AppLayout({ children }: { children: React.ReactNode }) {
+    return (
+        <div className="min-h-screen relative">
+            <AppHeader />
+
+            {children}
+        </div >
+    )
 }
-
-export default ({ children, breadcrumbs, ...props }: AppLayoutProps) => (
-    <AppLayoutTemplate breadcrumbs={breadcrumbs} {...props}>
-        {children}
-    </AppLayoutTemplate>
-);
